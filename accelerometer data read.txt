@@ -1,0 +1,82 @@
+
+#include <Servo.h>
+#include <SoftwareSerial.h>
+
+Servo myServo;
+Servo panServo;
+Servo tiltServo;
+SoftwareSerial mySerial(6, 5);
+
+
+String value;
+int angle;
+int prevValue = 0;
+int sensorValue = 0;
+int outputValue = 0;
+
+float value0, value1, value2;
+
+int tiltVal = 0;
+int panVal =0;
+
+char command;
+
+void setup() {
+ // put your setup code here, to run once:
+ Serial.begin(0);
+ Serial.println("Set up complete");
+ mySerial.begin(9600);
+ myServo.attach(9);
+}
+
+void loop() {
+ // put your main code here, to run repeatedly:
+ // if there's a new command reset the string
+ if(mySerial.available()){
+   value = "";
+   }
+
+   // Construct the command string fetching the bytes, sent by Android, one by one.
+   while(mySerial.available()){
+     command = ((byte)mySerial.read());
+     
+     if(command == ':') {
+       break;
+     } else {
+       value += command;
+     }
+     delay(1);
+   }
+   
+   int casted = value.toInt();
+   if(prevValue != casted){
+     Serial.println(casted);
+
+     
+     tiltVal= value1;
+
+     tiltVal = map(tiltVal, 0, 1023, 0, 255);
+     tiltServo.write(tiltVal);
+     delay(10);
+     
+     //angle = map(casted, 10, -10, 0, 179); // In case, re-map values as you wish
+     myServo.write(angle);
+     prevValue = casted;
+   } else {
+       prevValue = casted;
+       panVal= value0;
+
+
+       panVal = map(panVal, 0, 1023, 0, 255);  // Map Accelerometer X value to pan servo angle.
+       panServo.write(panVal);  
+
+       Serial.print("sensor = ");
+       Serial.print(sensorValue);
+       Serial.print("\t output = ");
+       Serial.println(outputValue);
+       delay(10);
+   }
+   
+   delay(0);
+   
+}

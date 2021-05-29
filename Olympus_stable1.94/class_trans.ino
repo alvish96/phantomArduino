@@ -1,0 +1,7 @@
+class trans
+{
+  private:
+  public:
+  
+
+};
