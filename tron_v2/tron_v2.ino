@@ -22,8 +22,13 @@ void(* resetFunc) (void) = 0; //declare reset function @ address 0
 
 
 
+#define rel1 14
+#define rel2 17
+#define rel3 16
+#define rel4 15
 
-
+#define relayon 0
+#define relayoff 1
 
 
 
@@ -32,8 +37,34 @@ void(* resetFunc) (void) = 0; //declare reset function @ address 0
 
 void setup()
 {
-  unsigned long a = 115200;
-  Serial.begin(a);
+
+pinMode(rel1,OUTPUT);
+pinMode(rel2,OUTPUT);
+pinMode(rel3,OUTPUT);
+pinMode(rel4,OUTPUT);
+
+
+//  relay on == 0    rlay off ==1
+
+
+digitalWrite(rel1,relayoff);
+digitalWrite(rel2,relayoff);
+digitalWrite(rel3,relayoff);
+digitalWrite(rel4,relayoff);
+//
+//  delay(1000);
+//digitalWrite(rel1,relayon);
+//digitalWrite(rel2,relayon);
+//digitalWrite(rel3,relayon);
+//digitalWrite(rel4,relayon);
+//  delay(1000);
+//digitalWrite(rel1,relayoff);
+//digitalWrite(rel2,relayoff);
+//digitalWrite(rel3,relayoff);
+//digitalWrite(rel4,relayoff);
+
+  unsigned long baud = 115200;
+  Serial.begin(baud);
   pinMode(bl, OUTPUT);
   pinMode(wh, OUTPUT);
   ir.enableIRIn();          // Start the receiver
@@ -77,7 +108,7 @@ void setup()
   dirup1 = !dirdw1;
   dirup2 = !dirdw2;
 
-  startup3();
-  startup2();
+//  startup3();
+//  startup2();
 
 }

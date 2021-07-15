@@ -169,11 +169,11 @@ void sequence1()//1.90
     Serial.print(i);
     //3.0
 
-int x1 = sizeof(ones)/sizeof(ones[0]);
-int x2 = sizeof(zeros)/sizeof(zeros[0]);
-    
+    int x1 = sizeof(ones) / sizeof(ones[0]);
+    int x2 = sizeof(zeros) / sizeof(zeros[0]);
 
-    
+
+
     for (int j = 0; j < x1; j++)
       if (i == ones[j])
         mod[i].definetype(1);

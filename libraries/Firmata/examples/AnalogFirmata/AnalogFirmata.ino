@@ -3,10 +3,10 @@
  * from software on a host computer. It is intended to work with
  * any host computer software package.
  *
- * To download a host software package, please click on the following link
- * to open the list of Firmata client libraries in your default browser.
+ * To download a host software package, please clink on the following link
+ * to open the download page in your default browser.
  *
- * https://github.com/firmata/arduino#firmata-client-libraries
+ * http://firmata.org/wiki/Download
  */
 
 /* This firmware supports as many analog ports as possible, all analog inputs,
@@ -53,7 +53,7 @@ void analogWriteCallback(byte pin, int value)
 void reportAnalogCallback(byte pin, int value)
 {
   if (value == 0) {
-    analogInputsToReport = analogInputsToReport & ~ (1 << pin);
+    analogInputsToReport = analogInputsToReport &~ (1 << pin);
   }
   else { // everything but 0 enables reporting of that pin
     analogInputsToReport = analogInputsToReport | (1 << pin);
@@ -66,7 +66,7 @@ void reportAnalogCallback(byte pin, int value)
  *============================================================================*/
 void setup()
 {
-  Firmata.setFirmwareVersion(FIRMATA_FIRMWARE_MAJOR_VERSION, FIRMATA_FIRMWARE_MINOR_VERSION);
+  Firmata.setFirmwareVersion(0, 2);
   Firmata.attach(ANALOG_MESSAGE, analogWriteCallback);
   Firmata.attach(REPORT_ANALOG, reportAnalogCallback);
 

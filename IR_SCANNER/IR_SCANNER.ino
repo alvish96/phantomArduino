@@ -16,13 +16,13 @@ void setup()
 }
 
 void loop() {
- // Serial.println("start");
+//  Serial.println("start");
   if (irrecv.decode(&results)) {
     
-  //Serial.println("printing value");
+  Serial.print("printing value  ");
     Serial.println(results.value,HEX);
     irrecv.resume(); // Receive the next value
   }
-  delay(1000);
+  delay(100);
   
 }

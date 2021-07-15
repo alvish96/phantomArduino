@@ -48,15 +48,20 @@ void remote()
           break;
 
         case 0x61D632CD:
+
+          digitalWrite(rel2, relayoff);
           Serial.println(F("CODE_MENU"));
           break;
 
 
         case 0x61D6728D:
+
+          digitalWrite(rel1, relayoff);
           Serial.println(F("CODE_EXIT"));
           break;
 
         case 0x61D6D02F:
+          digitalWrite(rel1, relayon);
           Serial.println(F("CODE_SOURCE"));
           break;
 
@@ -83,6 +88,8 @@ void remote()
           break;
 
         case 0x61D6906F:
+
+          digitalWrite(rel2, relayon);
           Serial.println(F("CODE_PLAY"));
           break;
 
@@ -112,7 +119,7 @@ void remote()
           break;
 
         case 0x61D69867:
-        debug=!debug;
+          debug = !debug;
           Serial.println(F("CODE_VERT"));
           break;
 
