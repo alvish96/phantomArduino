@@ -19,8 +19,8 @@
 //#include <UtilTime.h> // Precompiled arduino x86 based utiltime for timing functions
 
 // GCC a Arduino Missing
-#define HIGH    1
-#define LOW    0
+#define HIGH 1
+#define LOW 0
 #define _BV(x) (1<<(x))
 #define pgm_read_word(p) (*(p))
 #define pgm_read_byte(p) (*(p))
@@ -58,7 +58,7 @@
 
 // SPI defines for ARDUINO API
 #define MSBFIRST 1
-#define SPI_MODE0 mraa::SPI_MODE0
-#define SPI_CLOCK_DIV2 8000000
+//#define SPI_MODE0 mraa::SPI_MODE0
+#define SPI_CLOCK_DIV2 RF24_SPI_SPEED
 
 #endif
