@@ -28,9 +28,9 @@ void setup() {
   // FastLED.addLeds<UCS1903B, DATA_PIN, RGB>(leds, NUM_LEDS);
   // FastLED.addLeds<UCS1904, DATA_PIN, RGB>(leds, NUM_LEDS);
   // FastLED.addLeds<UCS2903, DATA_PIN, RGB>(leds, NUM_LEDS);
-  FastLED.addLeds<WS2812, DATA_PIN, RGB>(leds, NUM_LEDS);  // GRB ordering is typical
+//  FastLED.addLeds<WS2812, DATA_PIN, GRB>(leds, NUM_LEDS);  // GRB ordering is typical
   // FastLED.addLeds<WS2852, DATA_PIN, RGB>(leds, NUM_LEDS);  // GRB ordering is typical
-  // FastLED.addLeds<WS2812B, DATA_PIN, RGB>(leds, NUM_LEDS);  // GRB ordering is typical
+   FastLED.addLeds<WS2812B, DATA_PIN, GRB>(leds, NUM_LEDS);  // GRB ordering is typical
   // FastLED.addLeds<GS1903, DATA_PIN, RGB>(leds, NUM_LEDS);
   // FastLED.addLeds<SK6812, DATA_PIN, RGB>(leds, NUM_LEDS);  // GRB ordering is typical
   // FastLED.addLeds<SK6822, DATA_PIN, RGB>(leds, NUM_LEDS);
@@ -71,7 +71,7 @@ void fn(int x, int y)
   for (int i = x; i < y + 1; i++)
   {
 
-    leds[i - 1] = CRGB::White;
+    leds[i - 1] = CRGB::Goldenrod;
     Serial.println(i);
     FastLED.show();
     delay(del);
@@ -86,7 +86,7 @@ void fn2(int x)
 {
   for (int i = 0; i < x; i++)
   {
-    leds[i] = CRGB::White;
+    leds[i] = CRGB::Goldenrod;
     FastLED.show();
     delay(10);
   }

@@ -1,6 +1,7 @@
 {
-    "board": "arduino:avr:uno",
+    "board": "arduino:avr:nano",
     "programmer": "arduino:avrisp",
-    "port": "COM3",
-    "sketch": "pointer_testing\\pointer_testing.ino"
+    "port": "COM5",
+    "sketch": "pointer_testing\\pointer_testing.ino",
+    "configuration": "cpu=atmega328old"
 }
