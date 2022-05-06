@@ -1,0 +1,6 @@
+{
+    "sketch": "i2c_scanner.ino",
+    "port": "COM9",
+    "board": "arduino:avr:leonardo",
+    "programmer": "arduino:avrisp"
+}
